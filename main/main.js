@@ -34,18 +34,21 @@ function findProduct() {
     listProduct.findByName(name);
 }
 function editNewProduct() {
-    var id = +input.question("Nhap id san pham:\n");
-    if (id < 0 || id > this.listProduct.length) {
-        console.log("San pham khong ton tai");
+    var id = input.question("Nhap id san pham:\n");
+    if (listProduct.findById(id) == -1) {
+        console.log("Khong tim thay");
     }
-    var name = input.question("Nhap ten san pham:\n");
-    var type = input.question("Nhap loai san pham:\n");
-    var price = +input.question("Nhap gia san pham:\n");
-    var amount = +input.question("Nhap so luong san pham:\n");
-    var time = input.question("Nhap ngay san pham:\n");
-    var describe = input.question("Nhap mo ta san pham\n");
-    listProduct[this.listProduct.findByCode(id)] = new product_1.Product(id, name, type, price, amount, time, describe);
-    mainMenu();
+    else {
+        var name_1 = input.question("Nhap ten san pham:\n");
+        var type = input.question("Nhap loai san pham:\n");
+        var price = +input.question("Nhap gia san pham:\n");
+        var amount = +input.question("Nhap so luong san pham:\n");
+        var time = input.question("Nhap ngay san pham:\n");
+        var describe = input.question("Nhap mo ta san pham\n");
+        var product = new product_1.Product(id, name_1, type, price, amount, time, describe);
+        listProduct.editProduct(id, product);
+        console.log("Sua thanh cong");
+    }
 }
 function addProduct() {
     var id = (listProduct.product.length + 1);

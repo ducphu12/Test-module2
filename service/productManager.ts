@@ -54,5 +54,10 @@ if (findItem.length==0){
             }
         }
     }
+    editProduct(id:number,t : Product){
+        let index = this.findById(id)
+        this.product[index]=t
+
+    }
 
 }

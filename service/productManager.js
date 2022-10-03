@@ -52,6 +52,10 @@ var ProductManager = /** @class */ (function () {
             }
         }
     };
+    ProductManager.prototype.editProduct = function (id, t) {
+        var index = this.findById(id);
+        this.product[index] = t;
+    };
     return ProductManager;
 }());
 exports.ProductManager = ProductManager;

@@ -42,19 +42,23 @@ function findProduct(){
     listProduct.findByName(name)
 
 }
-function editNewProduct(){
-    let id = +input.question(`Nhap id san pham:\n`)
-    if (id < 0 || id > this.listProduct.length){
-        console.log(`San pham khong ton tai`)
+function editNewProduct() {
+
+    let id = input.question(`Nhap id san pham:\n`)
+    if (listProduct.findById(id) == -1){
+        console.log(`Khong tim thay`)
+    }else {
+        let name = input.question(`Nhap ten san pham:\n`)
+        let type = input.question(`Nhap loai san pham:\n`)
+        let price = +input.question(`Nhap gia san pham:\n`)
+        let amount = +input.question(`Nhap so luong san pham:\n`)
+        let time = input.question(`Nhap ngay san pham:\n`)
+        let describe = input.question(`Nhap mo ta san pham\n`)
+        let  product   = new Product(id, name, type, price, amount, time, describe)
+        listProduct.editProduct(id,product)
+        console.log(`Sua thanh cong`)
     }
-    let name = input.question(`Nhap ten san pham:\n`)
-    let type = input.question(`Nhap loai san pham:\n`)
-    let price = +input.question(`Nhap gia san pham:\n`)
-    let amount = +input.question(`Nhap so luong san pham:\n`)
-    let time = input.question(`Nhap ngay san pham:\n`)
-    let describe = input.question(`Nhap mo ta san pham\n`)
-    listProduct[this.listProduct.findByCode(id)] = new Product(id, name, type, price, amount, time, describe)
-    mainMenu()
+
 }
 function addProduct(){
     let id = (listProduct.product.length + 1)
