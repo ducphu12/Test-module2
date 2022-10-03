@@ -13,11 +13,11 @@ var ProductManager = /** @class */ (function () {
         for (var i = 0; i < this.product.length; i++) {
             if (id == this.product[i].id) {
                 this.product.splice(i, 1);
-                console.log("san pham da xoa");
+                console.log("xoa thanh cong");
             }
         }
         if (itemCount == this.product.length) {
-            "san pham khong ton tai";
+            "khong ton tai san pham can xoa";
         }
     };
     ProductManager.prototype.findById = function (id) {

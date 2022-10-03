@@ -10,6 +10,7 @@ function mainMenu(){
     3.Nhập thông tin một mặt hàng mới
     4.Chỉnh sửa thông tin của một mặt hàng
     5.Xoá một mặt hàng khỏi ứng dụng
+    0.Thoát
 `
     let choose ;
     console.log(menu);
@@ -39,6 +40,7 @@ function mainMenu(){
 function findProduct(){
     let name = input.question(`Nhap ten san pham:\n`)
     listProduct.findByName(name)
+
 }
 function editNewProduct(){
     let id = +input.question(`Nhap id san pham:\n`)
@@ -50,8 +52,9 @@ function editNewProduct(){
     let price = +input.question(`Nhap gia san pham:\n`)
     let amount = +input.question(`Nhap so luong san pham:\n`)
     let time = input.question(`Nhap ngay san pham:\n`)
-    let describe = +input.question(`Nhap mo ta san pham\n`)
-    listProduct[this.listProduct.findById()] = new Product(id, name, type, price, amount, time, describe)
+    let describe = input.question(`Nhap mo ta san pham\n`)
+    listProduct[this.listProduct.findByCode(id)] = new Product(id, name, type, price, amount, time, describe)
+    mainMenu()
 }
 function addProduct(){
     let id = (listProduct.product.length + 1)
@@ -88,9 +91,11 @@ function addProduct(){
     let product = new Product(id,name,type,price,amount,today,describe)
     listProduct.add(product)
 
+
 }
 function deleteProduct(){
     let id = input.question(`Nhap san pham can xoa`)
     listProduct.deleteById(id)
+
 }
 mainMenu()

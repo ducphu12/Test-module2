@@ -5,7 +5,7 @@ export class Product{
     private _price:number;
     private _amount:number;
     private _time:string;
-    private _describe:number;
+    private _describe:string;
 
 
     get id(): number {
@@ -56,15 +56,15 @@ export class Product{
         this._time = value;
     }
 
-    get describe(): number {
+    get describe(): string {
         return this._describe;
     }
 
-    set describe(value: number) {
+    set describe(value: string) {
         this._describe = value;
     }
 
-    constructor(id: number, name: string, type: string, price: number, amount: number, time: string, describe: number) {
+    constructor(id: number, name: string, type: string, price: number, amount: number, time: string, describe: string) {
         this._id = id;
         this._name = name;
         this._type = type;
